@@ -15,19 +15,19 @@ function Sidebar() {
             <i className="ri-blaze-fill mr-2"></i>
             Trending
           </Link>
-          <Link className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
+          <Link to="/popular" className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
             <i className="ri-bard-line mr-2"></i>
             Popular
           </Link>
-          <Link className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
+          <Link to="/movies" className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
             <i className="ri-movie-2-line mr-2"></i>
             Movies
           </Link>
-          <Link className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
+          <Link to="/tv" className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
             <i className="ri-tv-line mr-2"></i>
             TV Shows
           </Link>
-          <Link className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
+          <Link to="/people" className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
             <i className="ri-user-line mr-2"></i>
             People
           </Link>
@@ -37,11 +37,11 @@ function Sidebar() {
           <h1 className="text-white text-xl font-semibold mt-5">
             Website info
           </h1>
-          <Link className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
+          <Link to="/about" className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
             <i className="ri-file-info-line mr-2"></i>
             About Cinebyte
           </Link>
-          <Link className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
+          <Link to="/contact" className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
             <i className="ri-mail-line mr-2"></i>
             Contact Us
           </Link>

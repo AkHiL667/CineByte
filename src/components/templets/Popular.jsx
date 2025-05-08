@@ -1,37 +1,37 @@
 import React, { useState, useEffect } from 'react'
-import Topnav from './Topnav'
 import Cards from './Cards'
 import axios from '../utils/axios';
 
-function Trending() {
-  const [trending, setTrending] = useState([]);
+function Popular() {
+  const [Popular, setPopular] = useState([]);
   
-  const getTrending = async() => {
+  const getPopular = async() => {
     try {
-      const res = await axios.get(`/trending/all/week`)
-      setTrending(res.data.results)
+      const res = await axios.get(`/movie/popular`)
+      setPopular(res.data.results)
     } catch (error) {
       console.log(error)
     }
   }
   
   useEffect(() => {
-    getTrending();
+    getPopular();
   }, [])
 
   return (
     <div className='w-full h-screen overflow-y-auto overflow-x-hidden'>
-      <div className='w-full flex flex-col p-'>
+      <div className='w-full flex flex-col p-5'>
         <h1 className='text-zinc-300 text-2xl font-bold'>
           <i onClick={() => window.history.back()} className="ri-arrow-left-line text-zinc-400 cursor-pointer hover:text-zinc-200 mr-2"></i>
-          Trending Movies & TV Shows
+          Popular Movies & TV Shows
         </h1>
         <div className='w-full'>
-          <Cards data={trending}/>
+          <Cards data={Popular}/>
         </div>
       </div>
     </div>
   )
 }
 
-export default Trending
+export default Popular
+
