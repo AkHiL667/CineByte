@@ -15,7 +15,6 @@ function Topnav() {
       console.log(response.data.results);
       setSearchshow(response.data.results);
     } catch (error) {
-      console.log(error);
       setSearchshow([]);
     }
   }

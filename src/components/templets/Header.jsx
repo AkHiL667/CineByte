@@ -10,7 +10,6 @@ function Header() {
       const data = await axios.get("/trending/all/week");
       let randomMovie =
         data.data.results[Math.floor(Math.random() * data.data.results.length)];
-      console.log(randomMovie);
       setMovie(randomMovie);
     } catch (error) {
       console.log(error);

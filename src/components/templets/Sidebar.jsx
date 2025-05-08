@@ -11,7 +11,7 @@ function Sidebar() {
         </div>
         <nav className="flex flex-col gap-4 ">
           <h1 className="text-white text-xl font-semibold mt-5">New Feed</h1>
-          <Link className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
+          <Link to="/trending" className="hover:bg-[#6556CD] text-lg hover:text-white text-zinc-400 px-2 py-2 rounded-md duration-200">
             <i className="ri-blaze-fill mr-2"></i>
             Trending
           </Link>

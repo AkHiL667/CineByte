@@ -13,7 +13,6 @@ function Home() {
     <Header/>
     <HorizontalCards/>
     </div>
-
     </>
   )
 }
