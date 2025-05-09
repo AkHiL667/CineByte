@@ -13,17 +13,26 @@ function HorizontalCards() {
   const [popularTv, setPopularTv] = useState([]);
 
   const getPopularTv = async () => {
-    const res = await axios.get(`/tv/popular`);
-    setPopularTv(res.data.results);
+    try {
+      const res = await axios.get(`/tv/popular`);
+      setPopularTv(res.data.results);
+    } catch (error) {
+      console.log("Error fetching popular TV shows:", error);
+    }
   };
 
   const getTopRatedTV = async () => {
-    const res = await axios.get(`/tv/top_rated`);
-    setTopRatedTV(res.data.results);
+    try {
+      const res = await axios.get(`/tv/top_rated`);
+      setTopRatedTV(res.data.results);
+    } catch (error) {
+      console.log("Error fetching top rated TV shows:", error);
+    }
   };
 
   const getList = async () => {
     const res = await axios.get(`/trending/all/week`);
+    setList(res.data.results);
     setFilteredList(res.data.results);
   };
 
@@ -53,17 +62,19 @@ function HorizontalCards() {
     setCurrentFilter(filter);
     if (filter === "All") {
       setFilteredList(list);
-    } else {
-      const filtered = list.filter((item) => {
-        if (filter === "Movies") {
-          return item.media_type === "movie";
-        } else if (filter === "TV") {
-          return item.media_type === "tv";
-        }
-        return true;
-      });
-      setFilteredList(filtered);
+      return;
     }
+
+    const filtered = list.filter((item) => {
+      if (!item.media_type) {
+        return false;
+      }
+      
+      const isMatch = item.media_type === (filter === "Movies" ? "movie" : "tv");
+      return isMatch;
+    });
+    
+    setFilteredList(filtered);
   };
 
   return (
@@ -74,21 +85,21 @@ function HorizontalCards() {
         </h1>
         <DropDown
           title="Filter"
-          options={["TV", "Movies", "All"]}
+          options={["All", "Movies", "TV"]}
           onFilterChange={handleFilterChange}
         />
       </div>
       <div className="w-full px-4 md:px-5 h-[50vh] flex gap-4 md:gap-5 overflow-x-auto whitespace-nowrap scrollbar-hide [&::-webkit-scrollbar]:hidden">
         {filteredList.map((item, index) => (
           <Link
-            key={index}
+            key={item.id}
             to={`/${item.media_type}/${item.id}`}
             className="min-w-[250px] md:min-w-[30vh] hover:scale-105 transition-all duration-300 overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
           >
             <img
               className="w-full h-[60%] object-cover rounded"
               loading="lazy"
-              src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w500${item.backdrop_path || item.poster_path}`}
               alt={item.title || item.name}
             />
             <div className="flex flex-col gap-2">
@@ -99,35 +110,35 @@ function HorizontalCards() {
                 </span>
               </h1>
               <p className="text-zinc-400 ml-2 font-title w-full md:w-[30vh] tracking-wider text-xs md:text-sm whitespace-normal">
-                {item.overview.slice(0, 80)}...
+                {item.overview?.slice(0, 80)}...
               </p>
             </div>
           </Link>
         ))}
       </div>
+
       <h1 className="text-zinc-300 px-4 md:px-5 text-2xl md:text-3xl mb-5 mt-2 font-bold">
         Top Rated Movies
       </h1>
-
       <div className="w-full px-4 md:px-5 h-[50vh] flex gap-4 md:gap-5 flex-row overflow-x-auto whitespace-nowrap scrollbar-hide [&::-webkit-scrollbar]:hidden">
-        {topRated.map((item, index) => (
+        {topRated.map((item) => (
           <Link
-            key={index}
+            key={item.id}
             to={`/movie/${item.id}`}
             className="min-w-[250px] md:min-w-[30vh] hover:scale-105 transition-all duration-300 overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
           >
             <img
               className="w-full h-[60%] object-cover rounded"
-              loading="lazy"
-              src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w500${item.backdrop_path || item.poster_path}`}
               alt={item.title}
+              loading="lazy"
             />
             <div className="flex flex-col gap-2">
               <h1 className="text-zinc-100 ml-2 font-title my-1 tracking-wider text-xl md:text-2xl truncate w-full">
                 {item.title}
               </h1>
               <p className="text-zinc-400 ml-2 font-title w-full md:w-[30vh] tracking-wider text-xs md:text-sm whitespace-normal">
-                {item.overview.slice(0, 80)}...
+                {item.overview?.slice(0, 80)}...
               </p>
             </div>
           </Link>
@@ -138,24 +149,24 @@ function HorizontalCards() {
         Upcoming Movies
       </h1>
       <div className="w-full px-4 md:px-5 h-[50vh] flex gap-4 md:gap-5 flex-row overflow-x-auto whitespace-nowrap scrollbar-hide [&::-webkit-scrollbar]:hidden">
-        {upcoming.map((item, index) => (
+        {upcoming.map((item) => (
           <Link
-            key={index}
+            key={item.id}
             to={`/movie/${item.id}`}
             className="min-w-[250px] md:min-w-[30vh] hover:scale-105 transition-all duration-300 overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
           >
             <img
               className="w-full h-[60%] object-cover rounded"
-              loading="lazy"
-              src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w500${item.backdrop_path || item.poster_path}`}
               alt={item.title}
+              loading="lazy"
             />
             <div className="flex flex-col gap-2">
               <h1 className="text-zinc-100 ml-2 font-title my-1 tracking-wider text-xl md:text-2xl truncate w-full">
                 {item.title}
               </h1>
               <p className="text-zinc-400 ml-2 font-title w-full md:w-[30vh] tracking-wider text-xs md:text-sm whitespace-normal">
-                {item.overview.slice(0, 80)}...
+                {item.overview?.slice(0, 80)}...
               </p>
             </div>
           </Link>
@@ -166,24 +177,24 @@ function HorizontalCards() {
         Top Rated TV Shows
       </h1>
       <div className="w-full px-4 md:px-5 h-[50vh] flex gap-4 md:gap-5 flex-row overflow-x-auto whitespace-nowrap scrollbar-hide [&::-webkit-scrollbar]:hidden">
-        {topRatedTV.map((item, index) => (
+        {topRatedTV.map((item) => (
           <Link
-            key={index}
+            key={item.id}
             to={`/tv/${item.id}`}
             className="min-w-[250px] md:min-w-[30vh] hover:scale-105 transition-all duration-300 overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
           >
             <img
               className="w-full h-[60%] object-cover rounded"
-              loading="lazy"
-              src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w500${item.backdrop_path || item.poster_path}`}
               alt={item.name}
+              loading="lazy"
             />
             <div className="flex flex-col gap-2">
               <h1 className="text-zinc-100 ml-2 font-title my-1 tracking-wider text-xl md:text-2xl truncate w-full">
                 {item.name}
               </h1>
               <p className="text-zinc-400 ml-2 font-title w-full md:w-[30vh] tracking-wider text-xs md:text-sm whitespace-normal">
-                {item.overview.slice(0, 80)}...
+                {item.overview?.slice(0, 80)}...
               </p>
             </div>
           </Link>
@@ -194,24 +205,24 @@ function HorizontalCards() {
         Popular TV Shows
       </h1>
       <div className="w-full px-4 md:px-5 h-[50vh] flex gap-4 md:gap-5 flex-row overflow-x-auto whitespace-nowrap scrollbar-hide [&::-webkit-scrollbar]:hidden">
-        {popularTv.map((item, index) => (
+        {popularTv.map((item) => (
           <Link
-            key={index}
+            key={item.id}
             to={`/tv/${item.id}`}
             className="min-w-[250px] md:min-w-[30vh] hover:scale-105 transition-all duration-300 overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
           >
             <img
               className="w-full h-[60%] object-cover rounded"
-              loading="lazy"
-              src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w500${item.backdrop_path || item.poster_path}`}
               alt={item.name}
+              loading="lazy"
             />
             <div className="flex flex-col gap-2">
               <h1 className="text-zinc-100 ml-2 font-title my-1 tracking-wider text-xl md:text-2xl truncate w-full">
                 {item.name}
               </h1>
               <p className="text-zinc-400 ml-2 font-title w-full md:w-[30vh] tracking-wider text-xs md:text-sm whitespace-normal">
-                {item.overview.slice(0, 80)}...
+                {item.overview?.slice(0, 80)}...
               </p>
             </div>
           </Link>
