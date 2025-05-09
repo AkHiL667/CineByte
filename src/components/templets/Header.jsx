@@ -35,18 +35,19 @@ function Header() {
         backgroundRepeat: "no-repeat",
         height: "60vh",
         padding: "1px",
+        
       }}
-      className="flex flex-col justify-end p-[10%]"
+      className="flex flex-col justify-end p-4 md:p-[10%]"
     >
       <h1
         style={{
           textShadow: "0 0 10px rgba(0, 0, 0, 0.6)",
         }}
-        className="text-zinc-200 mx-5 mb-2 text-4xl font-bold"
+        className="text-zinc-200 text-2xl ml-5 md:text-4xl font-bold mb-2"
       >
         {movie.title || movie.name}
       </h1>
-      <p className="text-zinc-400 mx-5 mb-2 text-sm w-[70%]">
+      <p className="text-zinc-400 text-sm ml-5 md:text-base w-full md:w-[70%]">
         {movie.overview?.slice(0, 150)}...
         <i className="text-violet-500">Read More</i>
       </p>
