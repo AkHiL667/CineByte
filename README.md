@@ -1,14 +1,5 @@
 # 🎬 Cinebyte
 
-<div align="center">
-  <img src="/logo.svg" alt="Cinebyte Logo" width="200"/>
-  
-  [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-  [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-  [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-  [![TMDB](https://img.shields.io/badge/TMDB-032541?style=for-the-badge&logo=themoviedatabase&logoColor=white)](https://www.themoviedb.org/)
-</div>
-
 ## 🌟 About
 
 Cinebyte is a modern, sleek web application that brings the world of cinema to your fingertips. Built with cutting-edge technologies, it provides an immersive experience for movie and TV show enthusiasts.
@@ -32,28 +23,6 @@ Cinebyte is a modern, sleek web application that brings the world of cinema to y
 - **API:** The Movie Database (TMDB)
 - **State Management:** React Hooks
 - **Routing:** React Router DOM
-
-## 🚀 Getting Started
-
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/cinebyte.git
-```
-
-2. Install dependencies
-```bash
-cd cinebyte
-npm install
-```
-
-3. Start the development server
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:5173](http://localhost:5173) in your browser
-
-## 📱 Features in Detail
 
 ### Movie Discovery
 - Browse trending movies and TV shows
@@ -87,10 +56,9 @@ Cinebyte follows a modern, minimalist design approach with:
   <img src="https://avatars.githubusercontent.com/yourusername" alt="Akhil" width="150"/>
   
   ### Akhil
-  *Full Stack Developer*
+  *Frontend Developer*
   
-  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername)
-  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourusername)
+
 </div>
 
 ## 📅 Release
