@@ -24,28 +24,6 @@ Cinebyte is a modern, sleek web application that brings the world of cinema to y
 - **State Management:** React Hooks
 - **Routing:** React Router DOM
 
-## 🚀 Getting Started
-
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/cinebyte.git
-```
-
-2. Install dependencies
-```bash
-cd cinebyte
-npm install
-```
-
-3. Start the development server
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:5173](http://localhost:5173) in your browser
-
-## 📱 Features in Detail
-
 ### Movie Discovery
 - Browse trending movies and TV shows
 - View detailed information about each title
