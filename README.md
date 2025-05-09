@@ -1,14 +1,5 @@
 # 🎬 Cinebyte
 
-<div align="center">
-  <img src="../logo.svg" alt="Cinebyte Logo" width="200"/>
-  
-  [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-  [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-  [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-  [![TMDB](https://img.shields.io/badge/TMDB-032541?style=for-the-badge&logo=themoviedatabase&logoColor=white)](https://www.themoviedb.org/)
-</div>
-
 ## 🌟 About
 
 Cinebyte is a modern, sleek web application that brings the world of cinema to your fingertips. Built with cutting-edge technologies, it provides an immersive experience for movie and TV show enthusiasts.
