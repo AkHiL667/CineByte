@@ -7,7 +7,7 @@ function Sidebar() {
       <div className="w-[15%] h-full border-r-2 border-zinc-500 p-5">
         <div className="text-3xl">
           <i className="ri-film-fill mr-2 text-[#6556CD]"></i>
-          <span className="text-white font-title font-bold tracking-wider">Cinebyte</span>
+          <Link to="/" className="text-white font-title font-bold tracking-wider">Cinebyte</Link>
         </div>
         <nav className="flex flex-col gap-4 ">
           <h1 className="text-white text-xl font-semibold mt-5">New Feed</h1>

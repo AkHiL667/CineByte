@@ -1,6 +1,7 @@
 import axios from "../utils/axios";
 import React, { useState, useEffect } from "react";
 import DropDown from "./DropDown";
+import { Link } from "react-router-dom";
 
 function HorizontalCards() {
   const [list, setList] = useState([]);
@@ -79,9 +80,10 @@ function HorizontalCards() {
       </div>
       <div className="w-full px-5 h-[50vh] flex gap-5 overflow-x-auto whitespace-nowrap scrollbar-hide [&::-webkit-scrollbar]:hidden">
         {filteredList.map((item, index) => (
-          <div
+          <Link
             key={index}
-            className="min-w-[30vh] overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
+            to={`/${item.media_type}/${item.id}`}
+            className="min-w-[30vh] hover:scale-105 transition-all duration-300 overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
           >
             <img
               className="w-full h-[60%] object-cover rounded"
@@ -100,7 +102,7 @@ function HorizontalCards() {
                 {item.overview.slice(0, 80)}...
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <h1 className="text-zinc-300 px-5 text-3xl mb-5 mt-2 font-bold">
@@ -109,25 +111,26 @@ function HorizontalCards() {
 
       <div className="w-full px-5 h-[50vh] flex gap-5 flex-row overflow-x-auto whitespace-nowrap scrollbar-hide [&::-webkit-scrollbar]:hidden">
         {topRated.map((item, index) => (
-          <div
+          <Link
             key={index}
-            className="min-w-[30vh] overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
+            to={`/movie/${item.id}`}
+            className="min-w-[30vh] hover:scale-105 transition-all duration-300 overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
           >
             <img
               className="w-full h-[60%] object-cover rounded"
               loading="lazy"
               src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}
-              alt={item.title || item.name}
+              alt={item.title}
             />
             <div className="flex flex-col gap-2">
               <h1 className="text-zinc-100 ml-2 font-title my-1 tracking-wider text-2xl truncate w-full">
-                {item.title || item.name}
+                {item.title}
               </h1>
               <p className="text-zinc-400 ml-2 font-title w-[30vh] tracking-wider text-sm whitespace-normal">
                 {item.overview.slice(0, 80)}...
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
@@ -136,25 +139,26 @@ function HorizontalCards() {
       </h1>
       <div className="w-full px-5 h-[50vh] flex gap-5 flex-row overflow-x-auto whitespace-nowrap scrollbar-hide [&::-webkit-scrollbar]:hidden">
         {upcoming.map((item, index) => (
-          <div
+          <Link
             key={index}
-            className="min-w-[30vh] overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
+            to={`/movie/${item.id}`}
+            className="min-w-[30vh] hover:scale-105 transition-all duration-300 overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
           >
             <img
               className="w-full h-[60%] object-cover rounded"
               loading="lazy"
               src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}
-              alt={item.title || item.name}
+              alt={item.title}
             />
             <div className="flex flex-col gap-2">
               <h1 className="text-zinc-100 ml-2 font-title my-1 tracking-wider text-2xl truncate w-full">
-                {item.title || item.name}
+                {item.title}
               </h1>
               <p className="text-zinc-400 ml-2 font-title w-[30vh] tracking-wider text-sm whitespace-normal">
                 {item.overview.slice(0, 80)}...
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
@@ -163,25 +167,26 @@ function HorizontalCards() {
       </h1>
       <div className="w-full px-5 h-[50vh] flex gap-5 flex-row overflow-x-auto whitespace-nowrap scrollbar-hide [&::-webkit-scrollbar]:hidden">
         {topRatedTV.map((item, index) => (
-          <div
+          <Link
             key={index}
-            className="min-w-[30vh] overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
+            to={`/tv/${item.id}`}
+            className="min-w-[30vh] hover:scale-105 transition-all duration-300 overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
           >
             <img
               className="w-full h-[60%] object-cover rounded"
               loading="lazy"
               src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}
-              alt={item.title || item.name}
+              alt={item.name}
             />
             <div className="flex flex-col gap-2">
               <h1 className="text-zinc-100 ml-2 font-title my-1 tracking-wider text-2xl truncate w-full">
-                {item.title || item.name}
+                {item.name}
               </h1>
               <p className="text-zinc-400 ml-2 font-title w-[30vh] tracking-wider text-sm whitespace-normal">
                 {item.overview.slice(0, 80)}...
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
@@ -190,25 +195,26 @@ function HorizontalCards() {
       </h1>
       <div className="w-full px-5 h-[50vh] flex gap-5 flex-row overflow-x-auto whitespace-nowrap scrollbar-hide [&::-webkit-scrollbar]:hidden">
         {popularTv.map((item, index) => (
-          <div
+          <Link
             key={index}
-            className="min-w-[30vh] overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
+            to={`/tv/${item.id}`}
+            className="min-w-[30vh] hover:scale-105 transition-all duration-300 overflow-hidden bg-zinc-900 shadow-lg rounded-3xl h-[45vh] break-words"
           >
             <img
               className="w-full h-[60%] object-cover rounded"
               loading="lazy"
               src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}
-              alt={item.title || item.name}
+              alt={item.name}
             />
             <div className="flex flex-col gap-2">
               <h1 className="text-zinc-100 ml-2 font-title my-1 tracking-wider text-2xl truncate w-full">
-                {item.title || item.name}
+                {item.name}
               </h1>
               <p className="text-zinc-400 ml-2 font-title w-[30vh] tracking-wider text-sm whitespace-normal">
                 {item.overview.slice(0, 80)}...
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </>

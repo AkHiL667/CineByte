@@ -21,7 +21,7 @@ function Header() {
   }, []);
 
   return movie ? (
-    <div
+    <Link to={`/${movie.media_type}/${movie.id}`}
       style={{
         background: `linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.9)), url(${
           movie.backdrop_path
@@ -48,7 +48,7 @@ function Header() {
       </h1>
       <p className="text-zinc-400 mx-5 mb-2 text-sm w-[70%]">
         {movie.overview?.slice(0, 150)}...
-        <Link className="text-violet-500">Read More</Link>
+        <i className="text-violet-500">Read More</i>
       </p>
 
       <span className="flex items-center gap-2 text-zinc-400 mx-5 mb-5 text-sm">
@@ -68,7 +68,7 @@ function Header() {
       <button className="bg-[#6556CD] text-white px-4 cursor-pointer py-2 rounded-md mx-5 mb-5 w-fit">
         <i className="ri-play-line"></i> Watch the Trailer
       </button>
-    </div>
+    </Link>
   ) : (
     <div className="w-full h-[60vh] bg-zinc-900 animate-pulse flex items-center justify-center">
       <h1 className="text-zinc-400 text-2xl">Loading...</h1>

@@ -33,7 +33,7 @@ function Topnav() {
         placeholder="search"
         className="outline-none bg-transparent px-2 border-none py-2 mx-5 text-white w-[50%]"
       />
-      {search.length > 0 && <i onClick={() => setSearch('')} className="text-zinc-300 text-2xl ri-close-line"></i>}
+      {search.length > 0 && <i onClick={() => setSearch('')} className="text-zinc-300 cursor-pointer text-2xl ri-close-line"></i>}
       
       <div className="w-[50%] max-h-[50vh] absolute overflow-auto left-[5%] top-[90%]">
         {searchshow && searchshow.length > 0 && searchshow.map((item, index) => (

@@ -10,7 +10,6 @@ function People() {
     try {
       const res = await axios.get(`person/popular`)
       setPeople(res.data.results)
-      console.log(res.data.results)
     } catch (error) {
       console.log(error)
     }

@@ -11,6 +11,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.0",
     "axios": "^1.9.0",
+    "framer-motion": "^12.10.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-infinite-scroll-component": "^6.1.0",
