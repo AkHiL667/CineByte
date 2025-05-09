@@ -12,7 +12,6 @@ function Topnav() {
     }
     try {
       const response = await axios.get(`/search/multi?query=${search}`);
-      console.log(response.data.results);
       setSearchshow(response.data.results);
     } catch (error) {
       setSearchshow([]);
@@ -38,6 +37,7 @@ function Topnav() {
       <div className="w-full lg:w-[50%] max-h-[50vh] absolute overflow-auto left-0 top-[90%] z-50">
         {searchshow && searchshow.length > 0 && searchshow.map((item, index) => (
           <Link 
+            to={`/${item.media_type}/${item.id}`}
             key={item.id || index}
             className="inline-block border-b-2 hover:bg-zinc-900 border-zinc-400 text-white bg-zinc-800 py-8 flex justify-start items-center px-2 w-full"
           >
