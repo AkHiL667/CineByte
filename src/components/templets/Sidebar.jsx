@@ -9,9 +9,9 @@ function Sidebar() {
       {/* Mobile Toggle Button */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-4 z-50 lg:hidden bg-[#6556CD] p-2 rounded-lg text-white"
+        className="fixed top-4 left-4 z-50 lg:hidden bg-[#6556CD] px-2 py-1 rounded-lg text-white"
       >
-        <i className={`ri-${isOpen ? 'close' : 'menu'}-line text-xl`}></i>
+        <i className={`ri-${isOpen ? 'close' : 'menu'}-line text-sm `}></i>
       </button>
 
       {/* Overlay for mobile */}
@@ -37,7 +37,7 @@ function Sidebar() {
         border-r-2 border-zinc-500
         p-5
       `}>
-        <div className="text-3xl">
+        <div className="text-3xl ml-9 sm:ml-0">
           <i className="ri-film-fill mr-2 text-[#6556CD]"></i>
           <Link to="/" className="text-white font-title font-bold tracking-wider">Cinebyte</Link>
         </div>

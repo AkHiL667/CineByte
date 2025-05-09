@@ -24,8 +24,8 @@ function Topnav() {
   }, [search]);
 
   return (
-    <div className="relative w-full h-[10vh] flex justify-start items-center px-4 lg:px-8">
-      <i className="ri-search-line text-zinc-300 text-2xl"></i>
+    <div className="relative ml-5 w-full h-[10vh] flex justify-start items-center px-4 lg:px-8">
+      <i className="ri-search-line hidden lg:block text-zinc-300 text-2xl"></i>
       <input
         onChange={(e) => setSearch(e.target.value)}
         value={search}
